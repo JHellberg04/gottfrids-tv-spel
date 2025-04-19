@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js" lang="sv">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gottfrids TV-Spel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Hemsida där man kan köpa TV-Spel från Gottfrid">
+
+  <meta property="og:title" content="Gottfrids TV-Spel">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://medieinstitutet.github.io/fed24d-js-intro-inl-1-webshop-JHellberg04/">
+  <meta property="og:image" content="img/avatar.webp">
+  <meta property="og:image:alt" content="Spelfodralet till 'Avatar: Frontiers of Pandora' där en Na'vi rider en Ikran högt upp i luften.">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <header>
+    <h1>Gottfrids TV-spel</h1>
+    <nav>
+      <a href="#cartContainer" class="button" aria-label="Gå till varukorgen">
+        <img src="img/icons/cart-icon.png" alt="" width="24" height="24" loading="lazy">
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Products Section -->
+    <section class="products-container">
+      <h2 class="hidden">Spel till salu</h2>
+      <div class="game-sorting">
+        <h2 class="hidden">Sortera spelen</h2>
+        <button class="sort" id="sort-price" aria-label="Sortera spelen efter pris">
+          <img src="img/icons/price-icon.png" alt="" width="24" height="24" loading="lazy">
+        </button>
+        <button class="sort" id="sort-rating" aria-label="Sortera spelen efter betyg">
+          <img src="img/icons/rating-icon.png" alt="" width="24" height="24" loading="lazy">
+        </button>
+        <button class="sort" id="sort-name" aria-label="Sortera spelen efter namn">
+          <img src="img/icons/name-icon.png" alt="" width="24" height="24" loading="lazy">
+        </button>
+        <button class="sort" id="sort-category" aria-label="Sortera spelen efter kategori">
+          <img src="img/icons/category-icon.png" alt="" width="24" height="24" loading="lazy">
+        </button>
+      </div>
+      <div class="game-array-container" id="gamesContainer" role="region" aria-labelledby="sort-price"></div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-container" aria-labelledby="cart-title">
+      <h2 id="cart-title">Varukorg</h2>
+      <div id="cartContainer"></div>
+      <span class="discount-total" id="discountTotal"></span>
+      <div class="price-container">
+        <span class="shipping" id="shipping"></span>
+        <span class="total-price" id="totalPrice"></span>
+      </div>
+      <button class="checkout-button" id="checkout" aria-label="Gå till kassan">Till kassan</button>
+    </section>
+
+    <!-- Order Form Section -->
+    <section class="order-form" aria-labelledby="order-form-title">
+      <h2 id="order-form-title" class="hidden">Beställningsformulär</h2>
+      <form id="orderForm" aria-describedby="order-form-title">
+        <fieldset>
+          <legend class="hidden">Orderinformation</legend>
+
+          <label for="firstName">Förnamn:
+            <input type="text" id="firstName" class="order-input first-name" required aria-required="true">
+          </label>
+
+          <label for="lastName">Efternamn:
+            <input type="text" id="lastName" class="order-input last-name" required aria-required="true">
+          </label>
+
+          <label for="address">Adress (gata):
+            <input type="text" id="address" class="order-input address" required aria-required="true">
+          </label>
+
+          <label for="postalCode">Postnummer:
+            <input type="text" id="postalCode" class="order-input postal-code" required aria-required="true">
+          </label>
+
+          <label for="city">Postort:
+            <input type="text" id="city" class="order-input city" required aria-required="true">
+          </label>
+
+          <label for="doorCode">Portkod:
+            <input type="text" id="doorCode" class="order-input door-code">
+          </label>
+
+          <label for="phone">Telefon (mobil):
+            <input type="tel" id="phone" class="order-input phone" required aria-required="true">
+          </label>
+
+          <label for="email">E-postadress:
+            <input type="email" id="email" class="order-input email" required aria-required="true">
+          </label>
+
+          <label for="paymentMethod">Betalsätt:
+            <select id="paymentMethod" required aria-required="true">
+              <option value="">Välj betalsätt:</option>
+              <option id="card" value="kort">Kort</option>
+              <option id="invoice" class="invoice" value="faktura">Faktura</option>
+            </select>
+          </label>
+
+          <div id="cardInfo" class="card-info">
+            <label for="cardNumber">Kortnummer:
+              <input type="text" id="cardNumber" class="order-input">
+            </label>
+
+            <div class="expiry-date-container">
+              <label for="expiryMonth">Månad:
+                <input type="text" class="order-input short-input" id="expiryMonth">
+              </label>
+              <span class="separator"> / </span>
+              <label for="expiryYear">År:
+                <input type="text" class="order-input short-input" id="expiryYear">
+              </label>
+            </div>
+
+            <label for="cvc">CVC:
+              <input type="text" id="cvc" class="order-input cvc-input">
+            </label>
+          </div>
+
+          <div id="invoiceInfo" class="invoice-info">
+            <label for="personalNumber">Personnummer:
+              <input type="text" id="personalNumber" class="order-input">
+            </label>
+          </div>
+
+          <label for="acceptTerms" class="form-checkbox">
+            <input type="checkbox" id="acceptTerms" class="order-input" required>
+            Jag godkänner användningen av mina personuppgifter.
+          </label>
+
+          <label for="newsletter" class="form-checkbox">
+            <input type="checkbox" id="newsletter" class="order-input" checked>
+            Beställ vårat nyhetsbrev!
+          </label>
+
+          <label for="discountCode">Rabattkod:
+            <input type="text" id="discountCode" class="order-input">
+          </label>
+
+          <input class="order-button" type="submit" value="Slutför order" id="submit" aria-label="Slutför din beställning">
+          <input type="reset" value="Rensa" id="reset" aria-label="Rensa din beställning">
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

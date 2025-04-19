@@ -1,0 +1,421 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  gap: 10vw;
+
+  h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    text-align: center;
+  }
+
+  nav {
+    position: relative;
+    right: 0;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+button {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+main {
+  padding: 1rem;
+}
+
+.products-container {
+  margin-top: 5rem;
+}
+
+.products-container,
+.cart-container,
+.order-form {
+  margin-bottom: 2rem;
+}
+
+.hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+section {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input,
+select {
+  width: 95%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.card-info input,
+.invoice-info input {
+  width: calc(50% - 0.5rem);
+  display: inline-block;
+}
+
+.card-info span {
+  display: inline-block;
+  width: 1rem;
+  text-align: center;
+}
+
+button[type="submit"],
+button[type="reset"] {
+  width: calc(50% - 0.5rem);
+  display: inline-block;
+}
+
+label.form-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0;
+  width: 100%;
+
+  input {
+    width: 10%;
+    padding: 0;
+    display: flex;
+    align-self: center;
+  }
+}
+
+@mixin dividing-border {
+  border-bottom: 3px solid #ccc;
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.game-img {
+  max-width: 80%;
+  height: auto;
+  max-height: 700px;
+  margin-left: 10%;
+}
+
+.game-sorting {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1px;
+  @include dividing-border;
+
+  button {
+    margin-bottom: 20px;
+    display: flex;
+    img {
+      align-self: center;
+      margin: 0;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.game {
+  @include dividing-border;
+  .add-to-cart {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .amount-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    input {
+      width: 60%;
+      margin-top: 15px;
+    }
+  }
+  
+}
+
+.cart-container {
+  h2 {
+    @include dividing-border;
+    width: 40%;
+    margin-left: 30%;
+    text-align: center;
+  }
+
+  .total-price {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .game-img-cart {
+    width: 20%;
+    height: auto;
+    margin-left: 10%;
+  }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    gap: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .cart-item-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .cart-item-name {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .cart-item-quantity,
+      .cart-item-price {
+        font-size: 1rem;
+        color: #555;
+      }
+    }
+
+    .cart-item-image {
+      width: 80px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .cart-item-remove {
+      background-color: #ff4d4f;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #e63946;
+      }
+    }
+  }
+}
+
+.price-container {
+  .shipping {
+    margin-top: 1rem;
+  }
+  display: flex;
+  gap: 50%;
+  align-items: center;
+}
+
+.checkout-button {
+  margin: 1rem 40%;
+  width: 150px;
+}
+
+.expiry-date-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Adjust the space between the fields and the separator */
+}
+
+.expiry-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.short-input {
+  max-width: 25px;
+  text-align: center;
+}
+
+.separator {
+  font-size: 2rem;
+  margin-top: 0;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.cvc-input {
+  max-width: 50px;
+  text-align: center;
+}
+
+.empty-cart {
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+fieldset {
+  border: none;
+}
+
+.card-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  label {
+    grid-column: 1 / 2;
+    align-self: center;
+  }
+
+  input {
+    grid-column: 2 / 3;
+  }
+}
+
+.order-button {
+  background-color: #0070BA;
+  color: #fff;  
+}
+
+// Order summary container styling
+.order-summary-container {
+  background-color: #f9f9f9;
+  border: 3px solid #24f904;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  font-family: Arial, sans-serif;
+
+  .order-summary-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .order-summary-subtitle {
+    font-size: 20px;
+    color: #555;
+    margin-top: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  .order-summary-item {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  .order-summary-label {
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .order-summary-card-number {
+    margin: 15px 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .order-summary-games {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .order-summary-game-item {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .total-price,
+  .shipping {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+  }
+  
+  .delivery-time {
+    font-style: italic;
+    margin-top: 15px;
+    color: #666;
+    text-align: center;
+  }
+}
+
+.total-price-animation {
+  font-size: 1.1rem;
+  transition: font-size 0.25s ease;
+}
+
+
+

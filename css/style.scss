@@ -1,0 +1,7 @@
+@import "normalize.scss";
+
+@import "base.scss";
+
+@media (min-width: 768px) {
+  @import "tablet.scss";
+}

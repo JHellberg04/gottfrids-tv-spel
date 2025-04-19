@@ -1,0 +1,29 @@
+section {
+  width: 70%;
+  margin-left: 15%; 
+}
+
+.game-array-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  .game {
+    width: 80%;
+  }
+  .game-img {
+    max-height: 50%;
+  }
+
+  .add-to-cart {
+    margin-left: calc((100% - 45%) / 2);
+  }
+  
+} 
+
+.amount-container{
+  gap: 1rem;
+}
+
+.game-sorting {
+  justify-content: center;
+  gap: 50px;
+}
